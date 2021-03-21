@@ -54,7 +54,6 @@ public class Address {
     }
 
     public String toString() {
-        // TODO Auto-generated method stub
         String result = "thanh pho: " + this.thanhPho + "\nphuong: " + this.phuong + "\nquan: " + this.quan
                 + "\nduong: " + this.duong + "\nso nha: " + this.soNha;
         return result;
