@@ -53,7 +53,6 @@ public class Address {
         this.soNha = soNha;
     }
 
-    @Override
     public String toString() {
         // TODO Auto-generated method stub
         String result = "thanh pho: " + this.thanhPho + "\nphuong: " + this.phuong + "\nquan: " + this.quan
