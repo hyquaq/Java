@@ -386,7 +386,8 @@ public class lab3 {
 
         System.out.println(s.concat(sNew));
     }
-
+    
+    // function return true if paramater string s is palindrome
     public static boolean isPalindrome(String s) {
         for (int i = 0; i < (int) s.length() / 2; i++) {
             if (s.charAt(i) != s.charAt(s.length() - (i + 1))) {
