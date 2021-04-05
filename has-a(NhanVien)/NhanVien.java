@@ -33,7 +33,7 @@ public class NhanVien {
         this.diaChi = diaChi;
     }
 
-    public Address getDiaChi() {
+    getDiaChi() {
         return this.diaChi;
     }
 
