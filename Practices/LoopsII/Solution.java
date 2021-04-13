@@ -14,15 +14,15 @@ class Solution {
                 System.out.println(x + " can be fitted in:");
                 if (x >= -128 && x <= 127)
                     System.out.println("* byte");
-                if (x >= -Math.pow(2, 16) && x <= Math.pow(2, 16) - 1) {
+                if (x >= Short.MIN_VALUE && x <= Short.MAX_VALUE) {
                     System.out.println("* short");
                 }
 
-                if (x >= -Math.pow(2, 32) && x <= Math.pow(2, 32) - 1) {
+                if (x >= Integer.MIN_VALUE && x <= Integer.MAX_VALUE) {
                     System.out.println("* int");
                 }
 
-                if (x >= -Math.pow(2, 64) && x <= Math.pow(2, 64) - 1) {
+                if (x >= Long.MIN_VALUE && x <= Long.MAX_VALUE) {
                     System.out.println("* long");
                 }
                 // Complete the code
