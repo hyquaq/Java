@@ -22,7 +22,7 @@ public class Employee {
 		this.numDaysOff = 0;
 	}
 
-	public Employee(String ID, String fullName, int yearJoined, double coefficientsSalary, int numDaysOff) {
+	public Employee(String ID, String fullName, double coefficientsSalary, int yearJoined, int numDaysOff) {
 		this.ID = ID;
 		this.fullName = fullName;
 		this.yearJoined = yearJoined;
@@ -68,6 +68,10 @@ public class Employee {
 
 	public int getNumDaysOff() {
 		return numDaysOff;
+	}
+
+	public double getBasicSalary() {
+		return basicSalary;
 	}
 
 	public double getSenioritySalary() {
