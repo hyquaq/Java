@@ -26,4 +26,17 @@ public class Pair<T> {
     public String toString() {
         return "[" + first + ", " + second + "]";
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other instanceof Pair) {
+            Pair o = (Pair) other;
+            if (this.getFirst() == o.getFirst()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
 }
