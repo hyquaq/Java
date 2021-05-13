@@ -1,5 +1,10 @@
-public class Point {
+public abstract class Point {
     float x, y;
+
+    public Point() {
+        this.x = 0;
+        this.y = 0;
+    }
 
     public Point(float x, float y) {
         this.x = x;
@@ -13,5 +18,9 @@ public class Point {
     public void setXY(float x, float y) {
         this.x = x;
         this.y = y;
+    }
+
+    public void show() {
+        System.out.println("lop cha");
     }
 }
