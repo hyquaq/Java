@@ -1,6 +1,5 @@
 public class Circle implements GeometricObject {
     protected double radius;
-    private final double PI = 3.14;
 
     public Circle() {
         this.radius = 1.0;
@@ -10,16 +9,26 @@ public class Circle implements GeometricObject {
         this.radius = radius;
     }
 
-    public double getPerimeter() {
-        return this.radius * 2 * this.PI;
+    public void setRadius(double radius) {
+        this.radius = radius;
     }
 
+    public double getRadius() {
+        return this.radius;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return this.radius * 2 * Math.PI;
+    }
+
+    @Override
     public double getArea() {
-        return this.radius * this.radius * this.PI;
+        return this.radius * this.radius * Math.PI;
     }
 
     @Override
     public String toString() {
-        return "Circle(" + radius + ")";
+        return "Circle( radius = " + radius + " area = " + this.getArea() + ")";
     }
 }

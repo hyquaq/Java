@@ -1,33 +1,42 @@
-package Lab7.Homework;
-
 public class MovablePoint implements Movable {
-    int x, xSpeed, y, ySpeed;
+  int x, xSpeed, y, ySpeed;
 
-    public MovablePoint(int x, int y, int xSpeed, int ySpeed) {
-        this.x = x;
-        this.y = y;
-        this.xSpeed = xSpeed;
-        this.ySpeed = ySpeed;
-    }
+  public MovablePoint() {
+    this.x = 0;
+    this.y = 0;
+    this.xSpeed = 0;
+    this.ySpeed = 0;
+  }
 
-    public void moveUp() {
+  public MovablePoint(int x, int y, int xSpeed, int ySpeed) {
+    this.x = x;
+    this.y = y;
+    this.xSpeed = xSpeed;
+    this.ySpeed = ySpeed;
+  }
 
-    }
+  @Override
+  public void moveUp() {
+    this.y += this.ySpeed;
+  }
 
-    public void moveDown() {
+  @Override
+  public void moveDown() {
+    this.y -= this.ySpeed;
+  }
 
-    }
+  @Override
+  public void moveLeft() {
+    this.x += xSpeed;
+  }
 
-    public void moveLeft() {
+  @Override
+  public void moveRight() {
+    this.x -= xSpeed;
+  }
 
-    }
-
-    public void moveRight() {
-
-    }
-
-    @Override
-    public String toString() {
-        return "";
-    }
+  @Override
+  public String toString() {
+    return "[" + this.x + ", " + this.y + "]";
+  }
 }

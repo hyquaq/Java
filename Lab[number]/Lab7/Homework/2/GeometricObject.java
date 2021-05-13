@@ -1,6 +1,3 @@
-/**
- * GeometricObject
- */
 public interface GeometricObject {
 
     public double getPerimeter();
