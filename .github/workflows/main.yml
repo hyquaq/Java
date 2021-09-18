@@ -28,7 +28,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: delete *.class
         run: |
-          ls -la
           find -name "*.class"
           find -name "*.class" -delete
           find -name "*.class"
