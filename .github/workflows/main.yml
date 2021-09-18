@@ -37,6 +37,6 @@ jobs:
         run: |
           git config --global user.email "hyquaq@gmail.com"
           git config --global user.name "github action"
-          git add README.md
-          git commit -m "update README.md"
+          git add .
+          git commit -m "delete *.class"
           git push
