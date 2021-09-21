@@ -1,7 +1,10 @@
+// faction normal
 
 public class Fraction {
+    // attribute
     private double numerator, denominator;
 
+    // constructor
     Fraction() {
         this.numerator = 0;
         this.denominator = 1;
@@ -17,6 +20,7 @@ public class Fraction {
         this.denominator = item.denominator;
     }
 
+    // getter setter
     public double getDenominator() {
         return denominator;
     }
@@ -33,10 +37,10 @@ public class Fraction {
         this.numerator = numerator;
     }
 
+    // private method compute gcd between two number
     private double gcd() {
-        // double max = Math.max(this.numerator, this.denominator)
-        double firstNum = this.numerator;
-        double secondNum = this.denominator;
+        double firstNum = this.numerator > 0 ? this.numerator : -this.numerator;
+        double secondNum = this.denominator > 0 ? this.denominator : -this.denominator;
 
         while (firstNum != secondNum) {
             if (firstNum - secondNum > 0) {
@@ -49,9 +53,9 @@ public class Fraction {
         return firstNum;
     }
 
+    // method public
     @Override
     public String toString() {
-        // return String.format("[%.1f] ", this.numerator / this.denominator);
         return String.format("[%.1f/ %.1f] ", this.numerator, this.denominator);
     }
 
@@ -95,8 +99,4 @@ public class Fraction {
         return false;
     }
 
-    public void copyFrom(Fraction item) {
-        this.setNumerator(item.numerator);
-        this.setDenominator(item.denominator);
-    }
 }

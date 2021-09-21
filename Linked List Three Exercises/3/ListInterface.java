@@ -1,3 +1,5 @@
+// interface normal linked list
+
 import java.util.NoSuchElementException;
 
 public interface ListInterface<E> {
