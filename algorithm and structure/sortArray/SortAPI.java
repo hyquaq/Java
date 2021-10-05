@@ -3,7 +3,7 @@
 // import java.lang.reflect.Array;
 import java.util.*;
 
-public class index {
+public class SortAPI {
     public static void main(String[] args) {
         // int[] arr = new int[5];
         // arr[0] = 1;
