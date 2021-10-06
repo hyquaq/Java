@@ -6,31 +6,31 @@ import java.util.NoSuchElementException;
 public class Main {
 
     public static void sort(int[] a) {
-        for (int i = 0; i < a.length - 1; i++) {
-            int min = i;
+        for (int i = 1; i < a.length; i++) {
 
-            // find minium
-            for (int j = i + 1; j < a.length; j++) {
-                if (a[min] > a[j]) {
-                    min = j;
-                }
+            int j = i;
+            while (j > 0 && a[i] < a[j - 1]) {
+                j--;
             }
 
-            if (i == min) {
-                continue;
-            }
             // swap
-            int temp = a[min];
-            a[min] = a[i];
-            a[i] = temp;
+            insert(a, i, j);
             System.out.println(Arrays.toString(a));
 
         }
     }
 
+    public static void insert(int a[], int indexValue, int indexPosion) {
+        int temp = a[indexValue];
+        for (int j = indexValue; j > indexPosion; j--) {
+            a[j] = a[j - 1];
+        }
+
+        a[indexPosion] = temp;
+    }
+
     public static void main(String[] args) {
 
-        // int[] a = { 2, 1, 3, 0, 5 };
         int[] a = { 2, 1, 3, 0, 5, 10, -10, 30, -29, -27, 5, 3, -3, -2 };
 
         sort(a);
