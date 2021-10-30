@@ -1,4 +1,3 @@
-import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
 
 class Test {
     // using iterator
@@ -48,7 +47,7 @@ class Test {
         if (n == 1)
             return 2;
 
-        return Maht.pow(2, n) + aUsingRecursion(n - 1);
+        return Math.pow(2, n) + aUsingRecursion(n - 1);
     }
 
     public static double bUsingRecursion(int n) {
@@ -69,7 +68,7 @@ class Test {
         if (n == 1) {
             return 0;
         }
-        return n(n - 1) + dUsingRecursion(n - 1);
+        return n * (n - 1) + dUsingRecursion(n - 1);
     }
 
     public static double eUsingRecursion(int n) {
@@ -81,6 +80,20 @@ class Test {
 
     public static void main(String[] args) {
 
-        System.out.println("hi");
+        int n = 4;
+        System.out.println("a: (Iterator) \t" + aUsingIterator(n));
+        System.out.println("a: (Recursion) \t" + aUsingRecursion(n));
+
+        System.out.println("b: (Iterator) \t" + bUsingIterator(n));
+        System.out.println("b: (Recursion) \t" + bUsingIterator(n));
+
+        System.out.println("c: (Iterator) \t" + cUsingIterator(n));
+        System.out.println("c: (Recursion) \t" + cUsingRecursion(n));
+
+        System.out.println("d: (Iterator) \t" + dUsingIterator(n));
+        System.out.println("d: (Recursion) \t" + dUsingRecursion(n));
+
+        System.out.println("e: (Iterator) \t" + eUsingIterator(n));
+        System.out.println("e: (Recursion) \t" + eUsingRecursion(n));
     }
 }
