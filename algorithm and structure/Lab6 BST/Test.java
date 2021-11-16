@@ -11,16 +11,6 @@ public class Test {
         return tree;
     }
 
-    public static void printAscendingOder(BST tree) {
-        System.out.println("tang dan: ");
-        tree.printInOder();
-    }
-
-    public static void printDecendingOder(BST tree) {
-        System.out.println("giam dan: ");
-        tree.printDecendingOder();
-    }
-
     public static void main(String[] args) {
         // ex1
         BST tree = new BST();
@@ -44,15 +34,40 @@ public class Test {
         // tree2.printPreOder();
 
         // ex3
-        printAscendingOder(tree2);
+        System.out.println("tang dan: ");
+        tree2.printInOder();
 
         // ex4
-        printDecendingOder(tree2);
+        System.out.println("giam dan: ");
+        tree2.printDecendingOder();
 
         // ex5
-        // int key = 17;
-        // boolean isContain = tree2.constains(key);
-        // System.out.println("function contains: " + isContain);
+        int key = 11;
+        boolean isContain = tree2.constains(key);
+        System.out.println("key: " + key);
+        System.out.println("function contains: " + isContain);
+
+        // ex6
+        System.out.println("truoc khi xoa max: ");
+        tree2.printPreOder();
+        tree2.deleteMax();
+        System.out.println("sau khi xoa max: ");
+        tree2.printPreOder();
+        // Integer x = null;
+        // if (x == null) {
+        // System.out.println("Null");
+        // }
+
+        // ex7
+
+        // ex8
+        System.out.println("height = " + tree2.getHeight());
+
+        // ex9
+        System.out.println(tree2.sum());
+
+        // ex10
+        System.out.println(tree2.sum());
     }
 
 }

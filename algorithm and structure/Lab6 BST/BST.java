@@ -140,4 +140,61 @@ public class BST {
         RNL(root);
         System.out.println("");
     }
+
+    public void printAscendingOder(BST tree) {
+        printInOder();
+    }
+
+    private Node findParent(Node x, Node child) {
+        if (x == null) {
+            return null;
+        }
+        if (x.left == child || x.right == child) {
+            return x;
+        }
+
+        int cmp = child.key.compareTo(x.key);
+        if (cmp < 0) {
+            return findParent(x.left, child);
+        } else if (cmp > 0) {
+            return findParent(x.right, child);
+        }
+        return null;
+    }
+
+    public void deleteMax() {
+        Node max = max(root);
+        Node parentMax = findParent(root, max);
+        parentMax.right = null;
+    }
+
+    public void delete_pre() {
+        // code
+
+    }
+
+    private int height(Node x) {
+        if (x == null) {
+            return 0;
+        }
+        return 1 + Math.max(height(x.left), height(x.right));
+
+    }
+
+    public int getHeight() {
+        return height(root);
+    }
+
+    public Integer sum(Node x) {
+        // code
+        if (x == null) {
+            return 0;
+        }
+
+        return x.key + sum(x.left) + sum(x.right);
+    }
+
+    public Integer sum() {
+        return sum(root);
+    }
 }
