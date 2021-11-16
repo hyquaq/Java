@@ -64,7 +64,7 @@ public class Test {
         System.out.println("height = " + tree2.getHeight());
 
         // ex9
-        System.out.println(tree2.sum());
+        System.out.println(tree2.sum(tree2.search(key)));
 
         // ex10
         System.out.println(tree2.sum());

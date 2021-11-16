@@ -82,6 +82,10 @@ public class BST {
         }
     }
 
+    public Node search(Integer key) {
+        return search(root, key);
+    }
+
     private Node search(Node x, Integer key) {
         if (x == null) {
             return null;
