@@ -11,6 +11,10 @@ public class BST {
         root = new Node(key);
     }
 
+    public void insertNode(Integer key) {
+        root = insert(root, key);
+    }
+
     private Node insert(Node x, Integer key) {
         if (x == null) {
             return new Node(key);
@@ -67,21 +71,6 @@ public class BST {
         }
     }
 
-    private boolean contain(Node x, Integer key) {
-        if (x == null) {
-            return false;
-        }
-
-        int cmp = key.compareTo(x.key);
-        if (cmp > 0) {
-            return contain(x.right, key);
-        } else if (cmp < 0) {
-            return contain(x.left, key);
-        } else {
-            return true;
-        }
-    }
-
     public Node search(Integer key) {
         return search(root, key);
     }
@@ -118,11 +107,22 @@ public class BST {
     }
 
     public boolean constains(Integer key) {
-        return contain(root, key);
+        return contains(root, key);
     }
 
-    public void insertNode(Integer key) {
-        root = insert(root, key);
+    private boolean contains(Node x, Integer key) {
+        if (x == null) {
+            return false;
+        }
+
+        int cmp = key.compareTo(x.key);
+        if (cmp > 0) {
+            return contains(x.right, key);
+        } else if (cmp < 0) {
+            return contains(x.left, key);
+        } else {
+            return true;
+        }
     }
 
     public void printPreOder() {
@@ -149,32 +149,87 @@ public class BST {
         printInOder();
     }
 
-    private Node findParent(Node x, Node child) {
-        if (x == null) {
-            return null;
-        }
-        if (x.left == child || x.right == child) {
-            return x;
-        }
-
-        int cmp = child.key.compareTo(x.key);
-        if (cmp < 0) {
-            return findParent(x.left, child);
-        } else if (cmp > 0) {
-            return findParent(x.right, child);
-        }
-        return null;
-    }
-
     public void deleteMax() {
-        Node max = max(root);
-        Node parentMax = findParent(root, max);
-        parentMax.right = null;
+        deleteMax(root);
     }
 
-    public void delete_pre() {
-        // code
+    private Node deleteMax(Node x) {
+        if (x.right == null)
+            return x.left;
+        x.right = deleteMax(x.right);
+        return x;
+    }
 
+    public void deleteMin() {
+        deleteMin(root);
+    }
+
+    private Node deleteMin(Node x) {
+        if (x.left == null)
+            return x.right;
+        x.left = deleteMin(x.left);
+        return x;
+    }
+
+    public void delete(Integer key) {
+        delete(root, key);
+    }
+
+    private Node delete(Node x, Integer key) {
+        if (x == null)
+            return null;
+
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) {
+            x.left = delete(x.left, key);
+        } else if (cmp > 0) {
+            x.right = delete(x.right, key);
+        } else {
+            if (x.left == null) {
+                return x.right;
+            }
+            if (x.right == null) {
+                return x.left;
+            }
+
+            Node t = x;
+            x = min(t.right);
+            x.right = deleteMin(t.right);
+            x.left = t.left;
+        }
+        return x;
+    }
+
+    public void delete_pre(Integer key) {
+        // code
+        delete_pre(root, key);
+    }
+
+    private Node delete_pre(Node x, Integer key) {
+        if (x == null)
+            return null;
+
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) {
+            x.left = delete_pre(x.left, key);
+        } else if (cmp > 0) {
+            x.right = delete_pre(x.right, key);
+        } else {
+            if (x.left == null) {
+                return x.right;
+            }
+            if (x.right == null) {
+                return x.left;
+            }
+
+            Node t = x;
+            x = max(t.left);
+
+            x.left = deleteMax(t.left);
+
+            x.right = t.right;
+        }
+        return x;
     }
 
     private int height(Node x) {
@@ -185,12 +240,11 @@ public class BST {
 
     }
 
-    public int getHeight() {
+    public int height() {
         return height(root);
     }
 
     public Integer sum(Node x) {
-        // code
         if (x == null) {
             return 0;
         }
