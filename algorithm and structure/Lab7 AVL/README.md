@@ -52,13 +52,13 @@ The insert or delete operation may make the AVL tree come to imbalance.
 
 A simple modification of the tree, called rotation, can restore the AVL property
 
-### left rotation
+### left-left rotation
 
 When a new node is inserted into a AVL tree and makes it a right-right-unbalancedtree.
 
 The tree can be re-balanced using left rotation as following:
 
-![left rotation](avl_left_rotation.jpg)
+![left rotation](avl_left_left_rotation.png)
 
 This is the code of left rotation:
 
@@ -74,13 +74,13 @@ private Node rotationLeft(Node x) {
 }
 ```
 
-### right rotation
+### right-right rotation
 
 When a new node is inserted into a AVL tree and make it a left-left-unbalanced-tree.
 
 The tree can be re-balanced using right rotation as following:
 
-![](avl_right_rotation.jpg)
+![](avl_right_right_rotation.png)
 
 ```java
 private Node rotationRight(Node x) {
@@ -99,3 +99,47 @@ private Node rotationRight(Node x) {
 When a new node is inserted into a AVL tree and make it a left-right-unbalancedtree.
 
 The tree can be re-balanced using left-right rotation
+
+![](avl_left_right_rotation.png)
+
+```java
+
+```
+
+### right-left rotation
+
+When a new node is inserted into a AVL tree and make it a right-left-unbalancedtree.
+
+The tree can be re-balanced using right-left rotation.
+
+![](avl_right_left_rotation.png)
+
+```java
+
+```
+
+## balance
+
+This is the code to re-balance the tree:
+
+```java
+private Node balance(Node x) {
+    if (checkBalance(x) < -1) {
+        if (checkBalance(x.right) > 0) {
+            x.right = rotateRight(x.right);
+        }
+            x = rotateLeft(x);
+        }
+        else if (checkBalance(x) > 1) {
+            if (checkBalance(x.left) < 0) {
+                x.left = rotateLeft(x.left);
+            }
+            x = rotateRight(x);
+    }
+    return x;
+}
+```
+
+## exercises
+
+### 1 Complete the class to build the AVL tree. You can re-use the BST code in the previous lab (insertion, deletion).
