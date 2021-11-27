@@ -110,7 +110,7 @@ public int extractMax() {
     int max = heap[1];
     heap[1] = heap[heapSize];
     heapSize -= 1;
-    shiftDown(heapSize);
+    shiftDown(1);
     return max;
 }
 
@@ -121,11 +121,11 @@ private void shiftDown(int i) {
         int max = heap[i];
         int maxId = i;
 
-        if (left(i) < maxSize && max < heap[left(i)]) {
+        if (left(i) < heapSize && max < heap[left(i)]) {
             max = heap[left(i)];
             maxId = left(i);
         }
-        if (right(i) < maxSize && max < heap[right(i)]) {
+        if (right(i) < heapSize && max < heap[right(i)]) {
             max = heap[right(i)];
             maxId = right(i);
         }
