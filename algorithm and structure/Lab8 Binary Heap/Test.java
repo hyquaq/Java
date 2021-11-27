@@ -14,12 +14,19 @@ public class Test {
 
     public static void HeapSort(int[] array) {
         //
-        MaxHeap maxheap = new MaxHeap(array.length);
+        // MaxHeap maxheap = new MaxHeap(array.length);
+        // for (int i = 0; i < array.length; i++) {
+        // maxheap.insert(array[i]);
+        // }
+        // for (int i = 0; i < array.length; i++) {
+        // array[i] = maxheap.extractMax();
+        // }
+        MinHeap minheap = new MinHeap(array.length);
         for (int i = 0; i < array.length; i++) {
-            maxheap.insert(array[i]);
+            minheap.insert(array[i]);
         }
         for (int i = 0; i < array.length; i++) {
-            array[i] = maxheap.extractMax();
+            array[i] = minheap.extractMin();
         }
     }
 
