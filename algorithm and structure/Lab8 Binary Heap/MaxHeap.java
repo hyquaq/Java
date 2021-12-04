@@ -82,4 +82,11 @@ class MaxHeap {
             }
         }
     }
+
+    public void show() {
+        for (int i = 1; right(i) <= heapSize; i++) {
+            System.out.println(
+                    String.format("parent: %d -> [left %d, right %d]", heap[i], heap[left(i)], heap[right(i)]));
+        }
+    }
 }

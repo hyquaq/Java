@@ -1,9 +1,6 @@
 import java.util.Arrays;
 
-/**
- * Test
- */
-public class Test {
+public class TestMinHeap {
 
     // HeapSort(array)
     // BuildHeap(array)
@@ -13,14 +10,6 @@ public class Test {
     // return A
 
     public static void HeapSort(int[] array) {
-        //
-        // MaxHeap maxheap = new MaxHeap(array.length);
-        // for (int i = 0; i < array.length; i++) {
-        // maxheap.insert(array[i]);
-        // }
-        // for (int i = 0; i < array.length; i++) {
-        // array[i] = maxheap.extractMax();
-        // }
         MinHeap minheap = new MinHeap(array.length);
         for (int i = 0; i < array.length; i++) {
             minheap.insert(array[i]);
@@ -33,9 +22,16 @@ public class Test {
     public static void main(String[] args) {
         int[] a = { 10, 4, 56, 6, 7, 4, 6, 7, 8, 1, 2, 3, 1, 2, 0, 19, 20, 452 };
 
+        System.out.println("list: " + Arrays.toString(a));
+
+        MinHeap minheap = new MinHeap(a.length);
+        for (int i = 0; i < a.length; i++) {
+            minheap.insert(a[i]);
+        }
+        minheap.show();
+
         HeapSort(a);
 
         System.out.println(Arrays.toString(a));
-
     }
 }
