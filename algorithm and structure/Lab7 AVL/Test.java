@@ -14,17 +14,62 @@ public class Test {
     public static void main(String[] args) {
 
         AVL avl = new AVL();
-        avl.insert(3);
-        avl.insert(2);
+        // avl.insert(3);
+        // avl.insert(2);
+        // avl.insert(1);
+        // avl.insert(6);
+        // avl.insert(4);
+        // avl.insert(100);
+
+        // avl.insert(102);
+        // avl.insert(902);
+        // avl.insert(701);
+        // avl.insert(702);
+        // avl.insert(101);
+        // avl.insert(601);
+        // avl.insert(101);
+        // avl.insert(603);
+        // avl.insert(602);
+        // avl.insert(601);
+        // avl.insert(1101);
+        // avl.insert(1001);
+        // avl.insert(801);
+        // avl.insert(901);
+        // avl.insert(501);
+        // avl.insert(901);
+        // avl.insert(602);
+        // avl.insert(802);
+        // avl.insert(803);
+        // avl.insert(501);
+
         avl.insert(1);
-        avl.insert(6);
+        avl.insert(2);
+        avl.insert(3);
         avl.insert(4);
-        avl.insert(100);
+        avl.insert(5);
+        avl.insert(6);
+        avl.insert(7);
+        avl.insert(8);
+        avl.insert(9);
+        avl.insert(10);
+        avl.insert(11);
+        avl.insert(12);
+        avl.insert(13);
+        avl.insert(14);
+        avl.insert(15);
+        avl.insert(16);
+        avl.insert(17);
+        avl.insert(18);
+        avl.insert(19);
+        avl.insert(20);
 
         // avl.printPreOder();
+        // avl.printInOder();
+        avl.printPreOder();
         avl.printInOder();
+        avl.printPostOder();
 
-        System.out.println(avl.getRoot().key);
+        // System.out.println(avl.getRoot().key);
 
         // // ex1
         // System.out.println("bai 1: ");

@@ -35,8 +35,8 @@ class AVL {
     // node - left - right
     private void NLR(Node x) {
         if (x != null) {
-            // System.out.print(x.key + " ");
-            System.out.print(String.format("[%d, %d]", x.key, x.height));
+            System.out.print(x.key + " ");
+            // System.out.print(String.format("[%d, %d]", x.key, x.height));
             NLR(x.left);
             NLR(x.right);
         }
@@ -47,8 +47,8 @@ class AVL {
     private void LNR(Node x) {
         if (x != null) {
             LNR(x.left);
-            System.out.print(String.format("[%d, %d]", x.key, x.height));
-            // System.out.print(x.key + " ");
+            // System.out.print(String.format("[%d, %d]", x.key, x.height));
+            System.out.print(x.key + " ");
             LNR(x.right);
         }
     }
@@ -59,8 +59,8 @@ class AVL {
         if (x != null) {
             LRN(x.left);
             LRN(x.right);
-            // System.out.print(x.key + " ");
-            System.out.print(String.format("[%d, %d]", x.key, x.height));
+            System.out.print(x.key + " ");
+            // System.out.print(String.format("[%d, %d]", x.key, x.height));
         }
     }
 
