@@ -5,19 +5,25 @@ import java.util.*;
 /**
  * TestAM
  */
-public class TestAM {
+public class TestAL {
 
-    public static AdjacencyMatrix readAMfromFile(String filePath) {
-        AdjacencyMatrix graph;
+    public static AdjacencyList readAMfromFile(String filePath) {
+        AdjacencyList graph;
         try {
             File f = new File(filePath);
             Scanner sc = new Scanner(f);
             int vertices = sc.nextInt();
-            graph = new AdjacencyMatrix(vertices);
+            graph = new AdjacencyList(vertices);
+            sc.nextLine(); // error nextInt() not read '\n'
             for (int i = 0; i < vertices; i++) {
-                for (int j = 0; j < vertices; j++) {
-                    int weight = sc.nextInt();
-                    graph.setEgde(i, j, weight);
+                String[] neighbors = sc.nextLine().split(" ");
+                // System.out.println(Arrays.toString(neighbors));
+                int u = Integer.parseInt(neighbors[0]);
+                for (String neighbor : neighbors) {
+                    int v = Integer.parseInt(neighbor);
+                    if (u == v)
+                        continue;
+                    graph.addEdge(u, v);
                 }
             }
             sc.close();
@@ -32,8 +38,8 @@ public class TestAM {
     // }
 
     public static void main(String[] args) {
-        String filePath = "AMformat.txt";
-        AdjacencyMatrix matrix = readAMfromFile(filePath);
+        String filePath = "ALformat.txt";
+        AdjacencyList matrix = readAMfromFile(filePath);
 
         // ex1a
         matrix.printGraph();
@@ -48,7 +54,7 @@ public class TestAM {
 
         // ex1d
         int u = 1;
-        int[] neighbors = matrix.neighborsOfVertex(u);
+        int[] neighbors = matrix.getNeighborsOfVertex(u);
         System.out.print("neighbors: " + u);
         for (int i = 0; i < neighbors.length; i++) {
             System.out.print("->" + neighbors[i]);
@@ -57,9 +63,9 @@ public class TestAM {
 
         // ex1e
         u = 1;
-        int v = 4;
-        int weight = matrix.getEgde(u, v);
-        if (weight != 0) {
+        int v = 3;
+        boolean isHas = matrix.getEgde(u, v);
+        if (isHas) {
 
             System.out.println(String.format("has edge %d - %d", u, v));
         } else {

@@ -19,21 +19,39 @@ public class TestEL {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        EdgeList e = readAMfromFile("EL.txt");
+        EdgeList matrix = readAMfromFile("EL.txt");
         e.printGraph();
 
-        // dinh
-        // System.out.println(e.getEdges());
+        // ex1a
+        matrix.printGraph();
 
-        // in ra so canh
-        System.out.println(e.getEdges());
+        // ex1b
+        int countOfVertices = matrix.getVertices();
+        System.out.println("Count the number of vertices " + countOfVertices);
 
-        // in ra hang xom cu 3
-        for (Integer i : e.neighbors(3)) {
-            System.out.println(i);
+        // ex1c
+        int countOfEdges = matrix.getEdges();
+        System.out.println("Count the number of edges " + countOfEdges);
+
+        // ex1d
+        int u = 1;
+        int[] neighbors = matrix.neighborsOfVertex(u);
+        System.out.print("neighbors: " + u);
+        for (int i = 0; i < neighbors.length; i++) {
+            System.out.print("->" + neighbors[i]);
         }
+        System.out.println("");
 
-        // check co duong di tu 2 sang 3 k
-        System.out.println(e.check(2, 3));
+        // ex1e
+        u = 1;
+        int v = 4;
+        int weight = matrix.getEgde(u, v);
+        if (weight != 0) {
+
+            System.out.println(String.format("has edge %d - %d", u, v));
+        } else {
+
+            System.out.println(String.format("hasn't edge %d - %d", u, v));
+        }
     }
 }
