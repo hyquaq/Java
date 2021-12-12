@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class AdjacencyMatrix {
     private int[][] adj;
@@ -106,5 +107,79 @@ public class AdjacencyMatrix {
     public void DFS(int s) {
         boolean[] visited = new boolean[NUMBER_OF_VERTICES];
         DFS_recur(s, visited);
+    }
+
+    public void DFS2(int s) {
+        boolean visited[] = new boolean[NUMBER_OF_VERTICES];
+
+        Stack<Integer> stack = new Stack<>();
+        visited[s] = true;
+        stack.add(s);
+
+        while (!stack.isEmpty()) {
+            int x = stack.pop();
+            System.out.print(x + " ");
+
+            // large to small
+            // for (int i = 0; i < NUMBER_OF_VERTICES; i++) {
+            // small to large
+            for (int i = NUMBER_OF_VERTICES - 1; i >= 0; i--) {
+                if (adj[x][i] != 0 && visited[i] == false) {
+                    stack.push(i);
+                    visited[i] = true;
+                }
+            }
+        }
+    }
+
+    public LinkedList<Integer> Reachable(int s) {
+        LinkedList<Integer> store = new LinkedList<>();
+
+        boolean visited[] = new boolean[NUMBER_OF_VERTICES];
+
+        Stack<Integer> stack = new Stack<>();
+        visited[s] = true;
+        stack.add(s);
+
+        while (!stack.isEmpty()) {
+            int x = stack.pop();
+            store.add(x);
+
+            // large to small
+            // for (int i = 0; i < NUMBER_OF_VERTICES; i++) {
+            // small to large
+            for (int i = NUMBER_OF_VERTICES - 1; i >= 0; i--) {
+                if (adj[x][i] != 0 && visited[i] == false) {
+                    stack.push(i);
+                    visited[i] = true;
+                }
+            }
+        }
+
+        return store;
+    }
+
+    public boolean IsReachable(int u, int v) {
+        for (Integer item : Reachable(u)) {
+            if (item == v) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public AdjacencyList convertToAL() {
+        AdjacencyList matrix = new AdjacencyList(getVertices());
+
+        for (int i = 0; i < NUMBER_OF_VERTICES; ++i) {
+            for (int j = 0; j < NUMBER_OF_VERTICES; j++) {
+                if (adj[i][j] != 0) {
+                    matrix.addEdge(i, j);
+                }
+            }
+        }
+
+        return matrix;
+
     }
 }

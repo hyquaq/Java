@@ -38,33 +38,59 @@ public class TestAM {
         // ex1a
         matrix.printGraph();
 
-        // ex1b
-        int countOfVertices = matrix.getVertices();
-        System.out.println("Count the number of vertices " + countOfVertices);
+        // // ex1b
+        // int countOfVertices = matrix.getVertices();
+        // System.out.println("Count the number of vertices " + countOfVertices);
 
-        // ex1c
-        int countOfEdges = matrix.getEdges();
-        System.out.println("Count the number of edges " + countOfEdges);
+        // // ex1c
+        // int countOfEdges = matrix.getEdges();
+        // System.out.println("Count the number of edges " + countOfEdges);
 
-        // ex1d
-        int u = 1;
-        int[] neighbors = matrix.neighborsOfVertex(u);
-        System.out.print("neighbors: " + u);
-        for (int i = 0; i < neighbors.length; i++) {
-            System.out.print("->" + neighbors[i]);
-        }
+        // // ex1d
+        // int u = 1;
+        // int[] neighbors = matrix.neighborsOfVertex(u);
+        // System.out.print("neighbors: " + u);
+        // for (int i = 0; i < neighbors.length; i++) {
+        // System.out.print("->" + neighbors[i]);
+        // }
+        // System.out.println("");
+
+        // // ex1e
+        // u = 1;
+        // int v = 4;
+        // int weight = matrix.getEgde(u, v);
+        // if (weight != 0) {
+
+        // System.out.println(String.format("has edge %d - %d", u, v));
+        // } else {
+
+        // System.out.println(String.format("hasn't edge %d - %d", u, v));
+        // }
+
+        // ex4
+        // ex4a
+        int s = 3;
+        System.out.print("BFS: ");
+        matrix.BFS(s);
         System.out.println("");
 
-        // ex1e
-        u = 1;
-        int v = 4;
-        int weight = matrix.getEgde(u, v);
-        if (weight != 0) {
+        // ex4b
+        System.out.print("DFS: ");
+        matrix.DFS(s);
+        System.out.println("");
 
-            System.out.println(String.format("has edge %d - %d", u, v));
-        } else {
+        // ex4c
+        System.out.print("DFS2: ");
+        matrix.DFS2(s);
+        System.out.println("");
 
-            System.out.println(String.format("hasn't edge %d - %d", u, v));
-        }
+        // ex4d
+        int u = 1;
+        int v = 9;
+        System.out.println(matrix.IsReachable(u, v) ? "True" : "False");
+
+        // ex5
+        AdjacencyList matrix2 = matrix.convertToAL();
+        matrix2.printGraph();
     }
 }
