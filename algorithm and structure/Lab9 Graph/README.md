@@ -173,6 +173,55 @@ public class EdgeList{
 
 ## 3. Graph traversal algorithms
 
+### 3.1. Breadth First Search (BFS)
+
+Review the BFS algorithm that you learned in your theory class. Mapping it to the following code (this code is implemented for Adjacency Matrix):
+
+```java
+public void BFS(int s) {
+    boolean visited[] = new boolean[NUMBER_OF_VERTICES];
+
+    Queue<Integer> queue = new LinkedList<Integer>();
+    visited[s] = true;
+    queue.add(s);
+
+    while (!queue.isEmpty()) {
+        int x = queue.poll();
+        System.out.print(x + " ");
+
+        for (int i = 0; i < NUMBER_OF_VERTICES; i++) {
+            if (adj[x][i] != 0 && visited[i] == false) {
+                queue.add(i);
+                visited[i] = true;
+            }
+        }
+    }
+}
+```
+
+### 3.2. Depth First Search (DFS)
+
+Review the recursion DFS algorithm that you learned in your theory class. Mapping it to the following code (this code is implemented for Adjacency Matrix):
+
+```java
+public void DFS_recur(int v, boolean[] visited) {
+    visited[v] = true;
+
+    System.out.print(v + " ");
+
+    for (int i = 0; i < NUMBER_OF_VERTICES; i++) {
+        if (adj[v][i] != 0 && visited[i] == false) {
+            DFS_recur(i, visited);
+        }
+    }
+}
+
+public void DFS(int s) {
+    boolean[] visited = new boolean[NUMBER_OF_VERTICES];
+    DFS_recur(s, visited);
+}
+```
+
 ## Excercise
 
 ### Exercise 1
@@ -186,3 +235,45 @@ A graph is saved to file in AM format: (see the picture below)
 - (e) Check the existence of edge (u, v).
 
 ![](Figure%207.png)
+
+### Exercise 2
+
+A graph is saved to file in AL format: (see the picture below)
+
+![](Figure%208.png)
+
+- (a) Read the graph from the file and print the AL on the screen.
+- (b) Count the number of vertices.
+- (c) Count the number of edges.
+- (d) Enumerate neighbors of a vertex u.
+- (e) Check the existence of edge (u, v).
+
+### Exercise 3
+
+A graph is saved to file in EL format: (see the picture below)
+![](Figure%209.png)
+
+- (a) Read the graph from the file and print the EL on the screen.
+- (b) Count the number of vertices.
+- (c) Count the number of edges.
+- (d) Enumerate neighbors of a vertex u.
+- (e) Check the existence of edge (u, v).
+
+### Exercise 4
+
+Choose a graph, and use Adjacency Matrix to represent it. Implement the functions for the below requirements:
+
+- (a) Traverse the graph by using BFS. Print the traversal result on the screen.
+- (b) Traverse the graph by using DFS. Print the traversal result on the screen.
+- (c) Implement the DFS method without recursion. Print the traversal result on the screen. (Hint: using Stack)
+- (d) Implement the IsReachable method to test whether vertex v is reachable from vertex u.
+
+### Exercise 5
+
+Write a method in the AdjacencyMatrix class to convert a graph from Adjacency Matrix to Adjacency List.
+
+```java
+public AdjacencyList convertToAL(){
+    // ...
+}
+```
