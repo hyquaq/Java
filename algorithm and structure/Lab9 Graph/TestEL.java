@@ -8,10 +8,10 @@ public class TestEL {
         File f = new File(filePath);
         Scanner sc = new Scanner(f);
         while (sc.hasNextLine()) {
-            int w = sc.nextInt();
-            int s = sc.nextInt();
-            int d = sc.nextInt();
-            graph.addEdge(w, s, d);
+            int weight = sc.nextInt();
+            int source = sc.nextInt();
+            int dest = sc.nextInt();
+            graph.addEdge(weight, source, dest);
         }
 
         sc.close();
@@ -19,14 +19,13 @@ public class TestEL {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        EdgeList matrix = readAMfromFile("EL.txt");
-        e.printGraph();
+        EdgeList matrix = readAMfromFile("ELformat.txt");
 
         // ex1a
         matrix.printGraph();
 
-        // ex1b
         int countOfVertices = matrix.getVertices();
+        // ex1b
         System.out.println("Count the number of vertices " + countOfVertices);
 
         // ex1c
@@ -35,7 +34,7 @@ public class TestEL {
 
         // ex1d
         int u = 1;
-        int[] neighbors = matrix.neighborsOfVertex(u);
+        int[] neighbors = matrix.getNeighborsOfVertex(u);
         System.out.print("neighbors: " + u);
         for (int i = 0; i < neighbors.length; i++) {
             System.out.print("->" + neighbors[i]);
@@ -47,10 +46,8 @@ public class TestEL {
         int v = 4;
         int weight = matrix.getEgde(u, v);
         if (weight != 0) {
-
             System.out.println(String.format("has edge %d - %d", u, v));
         } else {
-
             System.out.println(String.format("hasn't edge %d - %d", u, v));
         }
     }

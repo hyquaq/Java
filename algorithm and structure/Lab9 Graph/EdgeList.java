@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Set;
 import java.util.Vector;
 
 public class EdgeList {
@@ -44,5 +48,55 @@ public class EdgeList {
             }
         }
         return false;
+    }
+
+    public int[] getNeighborsOfVertex(int u) {
+        LinkedList<Integer> store = new LinkedList<>();
+        for (int index = 0; index < edges.size(); ++index) {
+            IntegerTriple line = edges.get(index);
+            int sourceVertex = line.getSource();
+            int destVertex = line.getDest();
+
+            if (sourceVertex == u) {
+                store.add(destVertex);
+            }
+            if (destVertex == u) {
+                store.add(sourceVertex);
+            }
+        }
+        int[] neighbors = new int[store.size()];
+        for (int i = 0; i < store.size(); ++i) {
+            neighbors[i] = store.get(i);
+        }
+        return neighbors;
+    }
+
+    public int getEgde(int u, int v) {
+        for (int index = 0; index < edges.size(); ++index) {
+            IntegerTriple line = edges.get(index);
+            int sourceVertex = line.getSource();
+            int destVertex = line.getDest();
+            int weight = line.getWeight();
+
+            if (sourceVertex == u && destVertex == v) {
+                return weight;
+            }
+            if (sourceVertex == v && destVertex == u) {
+                return weight;
+            }
+        }
+        return 0;
+    }
+
+    public int getVertices() {
+        Set<Integer> vertexs = new HashSet<>();
+        for (int index = 0; index < edges.size(); ++index) {
+            IntegerTriple line = edges.get(index);
+            int sourceVertex = line.getSource();
+            int destVertex = line.getDest();
+            vertexs.add(sourceVertex);
+            vertexs.add(destVertex);
+        }
+        return vertexs.size();
     }
 }
